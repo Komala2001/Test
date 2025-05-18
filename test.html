@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bundle & Save</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f9f9f9;
+    }
+
+    .bundle {
+      max-width: 420px;
+      margin: auto;
+    }
+
+    .title {
+      text-align: center;
+      color: #008000;
+      font-size: 18px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+    }
+
+    .option {
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      padding: 18px 20px 15px 20px;
+      background: #fff;
+      transition: 0.3s;
+      box-sizing: border-box;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+
+    .option.selected {
+      border-color: #007f3f;
+      background-color: #eafff2;
+    }
+
+    .option-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .option-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 5px;
+      padding-left: 30px;
+    }
+    .option-header2 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 5px;
+      
+    }
+
+    .most-popular {
+      color: green;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .details {
+      margin-top: 10px;
+      display: none;
+    }
+
+    .details select {
+      margin: 5px;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .add-to-cart {
+      margin-top: 10px;
+      width: 100%;
+      padding: 12px;
+      background-color: #007f3f;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bundle">
+    <div class="title">Bundle & Save</div>
+     
+    <div class="option" id="opt1">
+      <label class="option-label">
+        <input type="radio" name="bundle" value="1" onclick="selectOption(1)">
+        1 Pair
+      </label>
+      <div class="option-header" >
+        <span>DKK 195.00</span>
+        <span>50% OFF</span>
+      </div>
+      <div class="details" id="details1">
+        <p>#1 Size
+          <select><option>S</option><option>M</option><option>L</option></select>
+          Colour
+          <select><option>Colour</option>
+        <option>red</option>
+    <option>green</option>
+<option>blue</option></select>
+        </p>
+      </div>
+    </div>
+
+    <div class="option" id="opt2">
+        <div class="option-header2">
+         <label class="option-label">
+        <input type="radio" name="bundle" value="2" onclick="selectOption(2)">
+        2 Pair
+      </label>
+      <span class="most-popular">Most-popular</span>
+        </div>
+      
+      <div class="option-header">
+        <span>DKK 345.00</span>
+        <span>  40% OFF</span>
+      </div>
+      <div class="details" id="details2">
+        <p>#1 Size
+          <select><option>S</option><option>M</option><option>L</option></select>
+          Colour
+         <select><option>Colour</option>
+        <option>red</option>
+    <option>green</option>
+<option>blue</option></select>
+        </p>
+        <p>#2 Size
+          <select><option>S</option><option>M</option><option>L</option></select>
+          Colour
+          <select><option>Colour</option>
+        <option>red</option>
+    <option>green</option>
+<option>blue</option></select>
+        </p>
+      </div>
+    </div>
+
+    <div class="option" id="opt3">
+      <label class="option-label">
+        <input type="radio" name="bundle" value="3" onclick="selectOption(3)">
+        3 Pair
+      </label>
+      <div class="option-header">
+        <span>DKK 528.00</span>
+        <span>60% OFF</span>
+      </div>
+      <div class="details" id="details3">
+        <p>#1 Size
+          <select><option>S</option><option>M</option><option>L</option></select>
+          Colour
+          <select><option>Colour</option>
+        <option>red</option>
+    <option>green</option>
+<option>blue</option></select>
+        </p>
+        <p>#2 Size
+          <select><option>S</option><option>M</option><option>L</option></select>
+          Colour
+          <select><option>Colour</option>
+        <option>red</option>
+    <option>green</option>
+<option>blue</option></select>
+        </p>
+        <p>#3 Size
+          <select><option>S</option><option>M</option><option>L</option></select>
+          Colour
+          <select><option>Colour</option>
+        <option>red</option>
+    <option>green</option>
+<option>blue</option></select>
+        </p>
+      </div>
+    </div>
+
+    <div class="footer">
+      Free 2 Day Shipping &nbsp;&nbsp;&nbsp;  <span id="total" >Total: DKK 360.00</span>
+    </div>
+    <button class="add-to-cart">+ Add to Cart</button>
+  </div>
+
+  <script>
+    function selectOption(optionNumber) {
+      for (let i = 1; i <= 3; i++) {
+        document.getElementById('opt' + i).classList.remove('selected');
+        document.getElementById('details' + i).style.display = 'none';
+      }
+      document.getElementById('opt' + optionNumber).classList.add('selected');
+      document.getElementById('details' + optionNumber).style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
